@@ -73,7 +73,7 @@
     "clsx": "^2.1.1",
     "extract-zip": "^2.0.1",
     "hono": "^4.7.0",
-    "i18next": "^24.2.3",
+    "i18next": "^25.8.18",
     "i18next-browser-languagedetector": "^8.2.0",
     "json5": "^2.2.3",
     "lucide-react": "^0.474.0",
