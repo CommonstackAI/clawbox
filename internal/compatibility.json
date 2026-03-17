@@ -1,0 +1,8 @@
+{
+  "openclaw": {
+    "targetVersion": "2026.3.12"
+  },
+  "node": {
+    "targetVersion": "24.14.0"
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ClawBox Release"
+  short_description: "Run ClawBox UTC date-based release flow"
+  default_prompt: "Use $clawbox-release-publish to prepare or execute the next ClawBox release."

@@ -1,0 +1,562 @@
+[
+  {
+    "id": "telegram",
+    "label": "Telegram",
+    "detailLabel": "Telegram Bot",
+    "description": "Bot API channel",
+    "order": 10,
+    "source": "core",
+    "docsPath": "/channels/telegram",
+    "iconKey": "telegram",
+    "archetype": "bot_token",
+    "aliases": [],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": true,
+      "polls": true,
+      "nativeCommands": true,
+      "blockStreaming": true,
+      "multiAccount": true
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": true,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "whatsapp",
+    "label": "WhatsApp",
+    "detailLabel": "WhatsApp Web",
+    "description": "QR link channel",
+    "order": 20,
+    "source": "core",
+    "docsPath": "/channels/whatsapp",
+    "iconKey": "whatsapp",
+    "archetype": "qr_link",
+    "aliases": [],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": true,
+      "polls": true,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": true
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": true,
+      "supportsConfig": true,
+      "supportsAuthFlow": true
+    }
+  },
+  {
+    "id": "discord",
+    "label": "Discord",
+    "detailLabel": "Discord Bot",
+    "description": "Bot API channel",
+    "order": 30,
+    "source": "core",
+    "docsPath": "/channels/discord",
+    "iconKey": "discord",
+    "archetype": "bot_token",
+    "aliases": [],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": true,
+      "polls": true,
+      "nativeCommands": true,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "irc",
+    "label": "IRC",
+    "detailLabel": "IRC",
+    "description": "Server + nick channel",
+    "order": 40,
+    "source": "core",
+    "docsPath": "/channels/irc",
+    "iconKey": "irc",
+    "archetype": "socket",
+    "aliases": ["internet-relay-chat"],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": false,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": true,
+      "multiAccount": true
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "googlechat",
+    "label": "Google Chat",
+    "detailLabel": "Google Chat",
+    "description": "Workspace Chat API channel",
+    "order": 50,
+    "source": "core",
+    "docsPath": "/channels/googlechat",
+    "iconKey": "googlechat",
+    "archetype": "webhook",
+    "aliases": ["gchat", "google-chat"],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": true,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": true,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "slack",
+    "label": "Slack",
+    "detailLabel": "Slack Bot",
+    "description": "Socket mode or HTTP app channel",
+    "order": 60,
+    "source": "core",
+    "docsPath": "/channels/slack",
+    "iconKey": "slack",
+    "archetype": "socket",
+    "aliases": [],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": true,
+      "polls": false,
+      "nativeCommands": true,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "signal",
+    "label": "Signal",
+    "detailLabel": "Signal REST",
+    "description": "signal-cli based channel",
+    "order": 70,
+    "source": "core",
+    "docsPath": "/channels/signal",
+    "iconKey": "signal",
+    "archetype": "local_bridge",
+    "aliases": [],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": true,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": true
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "imessage",
+    "label": "iMessage",
+    "detailLabel": "iMessage",
+    "description": "Local imsg bridge channel",
+    "order": 80,
+    "source": "core",
+    "docsPath": "/channels/imessage",
+    "iconKey": "imessage",
+    "archetype": "local_bridge",
+    "aliases": ["imsg"],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": false,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "feishu",
+    "label": "Feishu",
+    "detailLabel": "Feishu/Lark",
+    "description": "Enterprise messaging channel",
+    "order": 90,
+    "source": "extension",
+    "docsPath": "/channels/feishu",
+    "iconKey": "feishu",
+    "archetype": "bot_token",
+    "aliases": ["lark"],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": true,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": true
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "nostr",
+    "label": "Nostr",
+    "detailLabel": "Nostr",
+    "description": "NIP-04 DM channel",
+    "order": 100,
+    "source": "extension",
+    "docsPath": "/channels/nostr",
+    "iconKey": "nostr",
+    "archetype": "socket",
+    "aliases": [],
+    "capabilities": {
+      "threads": false,
+      "media": false,
+      "reactions": false,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "msteams",
+    "label": "Microsoft Teams",
+    "detailLabel": "Microsoft Teams",
+    "description": "Bot Framework enterprise channel",
+    "order": 110,
+    "source": "extension",
+    "docsPath": "/channels/msteams",
+    "iconKey": "msteams",
+    "archetype": "oauth_enterprise",
+    "aliases": ["teams"],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": false,
+      "polls": true,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "mattermost",
+    "label": "Mattermost",
+    "detailLabel": "Mattermost Bot",
+    "description": "Mattermost plugin channel",
+    "order": 120,
+    "source": "extension",
+    "docsPath": "/channels/mattermost",
+    "iconKey": "mattermost",
+    "archetype": "socket",
+    "aliases": [],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": true,
+      "polls": false,
+      "nativeCommands": true,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "nextcloud-talk",
+    "label": "Nextcloud Talk",
+    "detailLabel": "Nextcloud Talk",
+    "description": "Self-hosted webhook channel",
+    "order": 130,
+    "source": "extension",
+    "docsPath": "/channels/nextcloud-talk",
+    "iconKey": "nextcloud-talk",
+    "archetype": "webhook",
+    "aliases": ["nc-talk", "nc"],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": true,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": true,
+      "multiAccount": true
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": true,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "matrix",
+    "label": "Matrix",
+    "detailLabel": "Matrix",
+    "description": "Matrix bot channel",
+    "order": 140,
+    "source": "extension",
+    "docsPath": "/channels/matrix",
+    "iconKey": "matrix",
+    "archetype": "socket",
+    "aliases": [],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": true,
+      "polls": true,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "bluebubbles",
+    "label": "BlueBubbles",
+    "detailLabel": "BlueBubbles",
+    "description": "macOS BlueBubbles bridge channel",
+    "order": 150,
+    "source": "extension",
+    "docsPath": "/channels/bluebubbles",
+    "iconKey": "bluebubbles",
+    "archetype": "local_bridge",
+    "aliases": ["bb"],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": true,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "line",
+    "label": "LINE",
+    "detailLabel": "LINE Bot",
+    "description": "LINE Messaging API channel",
+    "order": 160,
+    "source": "core",
+    "docsPath": "/channels/line",
+    "iconKey": "line",
+    "archetype": "webhook",
+    "aliases": [],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": false,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": true,
+      "multiAccount": true
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": true,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "zalo",
+    "label": "Zalo",
+    "detailLabel": "Zalo Bot",
+    "description": "Zalo Bot API channel",
+    "order": 170,
+    "source": "extension",
+    "docsPath": "/channels/zalo",
+    "iconKey": "zalo",
+    "archetype": "webhook",
+    "aliases": ["zl"],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": false,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": true,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "zalouser",
+    "label": "Zalo Personal",
+    "detailLabel": "Zalo Personal",
+    "description": "Zalo QR login channel",
+    "order": 180,
+    "source": "extension",
+    "docsPath": "/channels/zalouser",
+    "iconKey": "zalouser",
+    "archetype": "qr_link",
+    "aliases": ["zlu"],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": true,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": true,
+      "multiAccount": true
+    },
+    "defaults": {
+      "supportsPairing": true,
+      "supportsProbe": true,
+      "supportsLogout": true,
+      "supportsConfig": true,
+      "supportsAuthFlow": true
+    }
+  },
+  {
+    "id": "synology-chat",
+    "label": "Synology Chat",
+    "detailLabel": "Synology Chat",
+    "description": "Synology webhook channel",
+    "order": 190,
+    "source": "extension",
+    "docsPath": "/channels/synology-chat",
+    "iconKey": "synology-chat",
+    "archetype": "webhook",
+    "aliases": [],
+    "capabilities": {
+      "threads": false,
+      "media": true,
+      "reactions": false,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": false,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  },
+  {
+    "id": "tlon",
+    "label": "Tlon",
+    "detailLabel": "Tlon",
+    "description": "Urbit messaging channel",
+    "order": 200,
+    "source": "extension",
+    "docsPath": "/channels/tlon",
+    "iconKey": "tlon",
+    "archetype": "socket",
+    "aliases": [],
+    "capabilities": {
+      "threads": true,
+      "media": true,
+      "reactions": false,
+      "polls": false,
+      "nativeCommands": false,
+      "blockStreaming": false,
+      "multiAccount": false
+    },
+    "defaults": {
+      "supportsPairing": false,
+      "supportsProbe": true,
+      "supportsLogout": false,
+      "supportsConfig": true,
+      "supportsAuthFlow": false
+    }
+  }
+]

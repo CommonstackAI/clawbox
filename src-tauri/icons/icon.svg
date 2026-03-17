@@ -1,0 +1,26 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="#3b82f6"/>
+  
+  <!-- Table grid -->
+  <g transform="translate(156, 156)">
+    <!-- Outer border -->
+    <rect x="0" y="0" width="200" height="200" fill="white" rx="8"/>
+    
+    <!-- Grid lines -->
+    <!-- Horizontal lines -->
+    <line x1="0" y1="50" x2="200" y2="50" stroke="#3b82f6" stroke-width="4"/>
+    <line x1="0" y1="100" x2="200" y2="100" stroke="#3b82f6" stroke-width="4"/>
+    <line x1="0" y1="150" x2="200" y2="150" stroke="#3b82f6" stroke-width="4"/>
+    
+    <!-- Vertical lines -->
+    <line x1="50" y1="0" x2="50" y2="200" stroke="#3b82f6" stroke-width="4"/>
+    <line x1="100" y1="0" x2="100" y2="200" stroke="#3b82f6" stroke-width="4"/>
+    <line x1="150" y1="0" x2="150" y2="200" stroke="#3b82f6" stroke-width="4"/>
+    
+    <!-- AI spark/bolt in center -->
+    <path d="M 100 60 L 110 95 L 130 90 L 105 125 L 115 125 L 90 160 L 95 120 L 75 125 Z" 
+          fill="#3b82f6" 
+          opacity="0.8"/>
+  </g>
+</svg>

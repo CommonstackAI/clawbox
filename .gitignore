@@ -1,0 +1,26 @@
+node_modules/
+dist/
+dist-types/
+.DS_Store
+*.log
+.env
+.env.*
+.claude/
+.codex/
+.cursor/
+src-tauri/target/
+src-tauri/binaries/
+src-tauri/resources/
+src-tauri/gen/
+.idea/
+
+.vscode/
+
+*.p12
+*.tsbuildinfo
+
+windows-install.ps1
+.openclaw-source-path
+*.code-workspace
+# Harness artifacts
+harness/artifacts/

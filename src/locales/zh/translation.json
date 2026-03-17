@@ -1,0 +1,763 @@
+{
+  "nav": {
+    "chat": "对话",
+    "soul": "Soul",
+    "cron": "任务",
+    "plugins": "插件",
+    "skills": "技能",
+    "settings": "设置"
+  },
+  "chat": {
+    "welcomeMessage": "有什么可以帮忙的？",
+    "welcomeMessages": [
+      "有什么可以帮忙的？",
+      "今天想聊些什么？",
+      "我能为你做什么？",
+      "有什么问题想问我吗？",
+      "让我们开始对话吧"
+    ],
+    "startConversation": "开始对话",
+    "startHint": "在下方输入消息开始",
+    "placeholder": "输入消息...",
+    "provider": "提供商",
+    "model": "模型",
+    "modelNotSet": "未设置",
+    "modelSwitched": "模型将在下次发送时切换为 {{model}}",
+    "pendingModelRestartHint": "已选择 {{model}}。下次发送时会应用该模型，并重启 OpenClaw 网关；ClawBox 可能会短暂显示无法连接。",
+    "send": "发送",
+    "stop": "停止",
+    "reasoningAvailable": "模型进行过思考",
+    "toolCall": {
+      "badge": "Tool Call",
+      "tool": "Tool",
+      "args": "Args",
+      "result": "Result",
+      "usingTool": "Using tool",
+      "running": "Running...",
+      "failed": "Failed",
+      "emptyResult": "(no result)"
+    }
+  },
+  "sessions": {
+    "title": "会话列表",
+    "count": "{{count}} 个会话",
+    "noSessions": "暂无会话",
+    "startConversation": "开始对话以创建会话",
+    "deleteTitle": "删除会话",
+    "deleteConfirm": "确定要删除此会话吗？此操作无法撤销。",
+    "compacted": "已压缩",
+    "info": "会话信息",
+    "titleLabel": "标题",
+    "originalSessionId": "OpenClaw 会话 ID",
+    "lastActive": "最后活跃",
+    "messages": "消息数",
+    "deleteSession": "删除会话"
+  },
+  "settings": {
+    "title": "设置",
+    "description": "配置 OpenClaw 网关连接与上游模型服务",
+    "gatewayUrl": "网关地址",
+    "checkConnection": "检查连接",
+    "connected": "已连接",
+    "connectionFailed": "连接失败",
+    "models": "可用模型",
+    "defaultModel": "默认模型",
+    "modelSelectPlaceholder": "选择模型...",
+    "modelEmptyHint": "暂无可用模型，请先检查网关连接或保存 Provider 配置。",
+    "currentConfig": "当前配置",
+    "unsavedChanges": "有未保存的更改",
+    "providerConfig": "AI 服务商",
+    "providerConfigDesc": "选择 AI 服务提供商并配置模型接口。CommonStack 保持推荐位，自定义服务商支持兼容 OpenAI 或 Anthropic 的端点。",
+    "providerSelectLabel": "服务商",
+    "providerCommonstack": "CommonStack",
+    "providerCommonstackRecommended": "CommonStack（推荐）",
+    "providerCustom": "自定义服务商",
+    "providerCommonstackHint": "使用 CommonStack 节点与 API Key，适合获得项目推荐体验。",
+    "providerCustomHint": "允许连接到兼容 OpenAI 或 Anthropic 的 API 端点。请填写自定义 Base URL、兼容性和 API Key。",
+    "providerNode": "API 节点",
+    "providerCompatibilityLabel": "Endpoint compatibility",
+    "providerCompatibilityOpenai": "OpenAI-compatible",
+    "providerCompatibilityOpenaiDesc": "Uses /chat/completions",
+    "providerCompatibilityAnthropic": "Anthropic-compatible",
+    "providerCompatibilityAnthropicDesc": "Uses /messages",
+    "providerBaseUrl": "Base URL",
+    "providerApiKeyLabel": "API Key",
+    "providerSavedKeys": "已保存的 API Key",
+    "providerModelRefreshHint": "切换服务商后，请先保存配置并等待网关重载，再为该服务商选择默认模型。",
+    "providerBaseUrlRequired": "请输入 Base URL",
+    "providerApiKeyRequired": "请输入 API Key",
+    "providerCommonstackApiKeyError": "CommonStack API Key 必须以 \"ak-\" 开头",
+    "providerNoModels": "未从该 Provider 获取到可用模型",
+    "providerSaveFailed": "Provider 配置保存失败",
+    "providerEndpointUnavailable": "无法连接到 Provider 端点（{{baseUrl}}）。请检查 Base URL、兼容模式、API Key，以及本机网络或 TLS 配置。",
+    "gatewayRestartHint": "此操作会重启 OpenClaw 网关。ClawBox 可能会短暂显示连不上网关，这是预期行为。",
+    "gatewayRestartingTitle": "OpenClaw 网关正在重启",
+    "gatewayRestartingBody": "ClawBox 可能会短暂显示无法连接，恢复后会自动继续使用。",
+    "gatewayRestartDelayedTitle": "仍在等待 OpenClaw 网关恢复",
+    "gatewayRestartDelayedBody": "ClawBox 在网关恢复前可能暂时无法加载模型或插件状态，请稍后再试。",
+    "providerLabel": "Provider",
+    "titleModel": "标题与摘要",
+    "titleModelDesc": "对话标题和工具摘要会自动跟随 OpenClaw 当前默认模型。",
+    "titleBaseUrl": "Base URL",
+    "titleApiKey": "API Key",
+    "titleModelSelect": "当前模型",
+    "titleModelHint": "如需调整这两项能力，请修改上方默认模型。",
+    "fetchModels": "获取模型",
+    "testModel": "测试",
+    "testResult": "测试结果",
+    "testing": "测试中...",
+    "fetchingModels": "获取中...",
+    "envStatus": "运行环境",
+    "envMode": "环境模式",
+    "envPortable": "Portable (内置)",
+    "envSystem": "系统安装",
+    "envNotConfigured": "未配置",
+    "notDetected": "未检测到",
+    "envNotReady": "环境未就绪",
+    "envWarning": "环境可用，但有警告",
+    "envSystemNodeWarning": "系统 Node.js 当前为 {{detected}}，推荐 {{expected}}。当前可继续使用已连接的 gateway，但环境重建或重启时仍建议升级 Node.js。",
+    "envDebugInfo": "查看环境探测详情",
+    "envDebugGateway": "网关",
+    "envDebugNode": "Node.js 探测",
+    "envDebugOpenclaw": "OpenClaw 探测",
+    "envDebugEmpty": "暂无调试信息",
+    "reconfigure": "重新配置环境",
+    "reconfigureTitle": "重新配置环境",
+    "reconfigureDesc": "要重新配置 OpenClaw 环境吗？若继续，我们将带你回到配置向导。",
+    "reconfigureConfirm": "确认重新配置",
+    "reconfigureTransitionTitle": "正在进入环境向导",
+    "reconfigureTransitionDesc": "准备切换到 OpenClaw 配置流程..."
+  },
+  "common": {
+    "save": "保存",
+    "saved": "已保存！",
+    "reset": "重置",
+    "cancel": "取消",
+    "delete": "删除",
+    "yes": "是",
+    "no": "否",
+    "configured": "已配置",
+    "loading": "加载中..."
+  },
+  "startup": {
+    "connectingServer": "正在连接服务...",
+    "waitingServer": "正在等待 ClawBox 服务启动...",
+    "loadingConfig": "正在加载配置...",
+    "checkingSetup": "正在检查初始化状态...",
+    "checkingVersion": "正在检查 OpenClaw 版本...",
+    "waitingGateway": "正在等待 OpenClaw 启动完成...",
+    "loadingAgents": "正在加载 Agent...",
+    "errorHint": "请检查 ClawBox 和 OpenClaw 是否正常启动，然后重新打开应用。",
+    "errors": {
+      "serverTimeout": "连接 ClawBox 服务超时，请确认应用后端已成功启动。",
+      "gatewayTimeout": "等待 OpenClaw 启动超时，请确认运行环境正常后重试。"
+    }
+  },
+  "statusFooter": {
+    "title": "运行状态",
+    "stateOnline": "在线",
+    "stateOffline": "离线",
+    "gatewayConnected": "网关已连接",
+    "gatewayDisconnected": "网关未连接",
+    "gatewayRunning": "网关服务运行中",
+    "gatewayWaiting": "等待网关服务...",
+    "appLabel": "ClawBox",
+    "runtimeLabel": "OpenClaw",
+    "nodeLabel": "Node.js",
+    "modeLabel": "环境模式",
+    "version": "v{{version}}",
+    "appVersion": "ClawBox v{{version}}",
+    "openclawVersion": "OpenClaw {{version}}",
+    "nodeVersionMode": "Node.js {{version}} ({{mode}})",
+    "nodeWarning": "Node.js {{version}}，建议升级到 {{target}}",
+    "modePortable": "Portable",
+    "modeSystem": "System",
+    "logs": "日志"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "跟随系统"
+  },
+  "suggestions": {
+    "title": "推荐提问",
+    "loading": "正在生成推荐..."
+  },
+  "cron": {
+    "title": "定时任务",
+    "description": "管理 OpenClaw 的定时任务调度",
+    "enabled": "已启用",
+    "disabled": "已禁用",
+    "jobCount": "{{count}} 个任务",
+    "addJob": "添加任务",
+    "create": "创建",
+    "noJobs": "暂无定时任务",
+    "enable": "启用",
+    "disable": "禁用",
+    "runNow": "立即执行",
+    "viewRuns": "执行历史",
+    "runHistory": "执行历史",
+    "noRuns": "暂无执行记录",
+    "basicInfo": "基本信息",
+    "jobName": "任务名称",
+    "jobNamePlaceholder": "例：每日摘要",
+    "jobDescription": "描述（可选）",
+    "jobDescriptionPlaceholder": "任务用途说明",
+    "enableOnCreate": "创建后立即启用",
+    "schedule": "调度规则",
+    "schedule_every": "固定间隔",
+    "schedule_cron": "Cron 表达式",
+    "schedule_at": "单次执行",
+    "every": "每",
+    "minutes": "分钟",
+    "hours": "小时",
+    "days": "天",
+    "cronExpression": "Cron 表达式",
+    "timezone": "时区",
+    "runAt": "执行时间",
+    "execution": "执行配置",
+    "sessionTarget": "执行会话",
+    "mainSession": "主会话",
+    "isolated": "独立会话",
+    "wakeMode": "唤醒模式",
+    "wakeNow": "立即唤醒",
+    "wakeHeartbeat": "下次心跳",
+    "payloadType": "任务类型",
+    "systemEvent": "系统事件",
+    "agentTurn": "Agent 对话",
+    "agentMessage": "对话消息",
+    "agentMessagePlaceholder": "发送给 Agent 的消息内容",
+    "eventText": "事件文本",
+    "eventTextPlaceholder": "系统事件内容",
+    "timeout": "超时时间",
+    "seconds": "秒",
+    "delivery": "结果投递",
+    "deliveryMode": "投递模式",
+    "deliveryNone": "不投递",
+    "deliveryAnnounce": "发送摘要",
+    "deliveryChannel": "渠道",
+    "deliveryTo": "目标",
+    "deliveryToPlaceholder": "手机号/聊天ID",
+    "delivery_announce": "发送摘要",
+    "delivery_webhook": "Webhook",
+    "delivery_none": "不投递",
+    "deliveryBestEffort": "投递失败时不报错（尽力投递）",
+    "deliveryChannelHint": "选择接收摘要的已连接频道",
+    "deleteAfterRun": "执行后自动删除",
+    "model": "运行模型",
+    "modelPlaceholder": "留空使用默认模型",
+    "nextRun": "下次执行",
+    "edit": "编辑",
+    "editJob": "编辑任务",
+    "confirmDelete": "确认删除",
+    "statusTitle": "运行状态",
+    "statusLabel": "状态",
+    "createdAt": "创建时间",
+    "lastRun": "上次执行",
+    "lastError": "错误信息",
+    "scheduleType": "调度类型",
+    "refresh": "刷新",
+    "triggered": "已触发",
+    "running": "执行中..."
+  },
+  "soul": {
+    "title": "Soul 市场",
+    "description": "定义你的 AI 助手的人格与风格",
+    "currentSoul": "当前启用",
+    "templateSection": "模板库",
+    "noSoul": "尚未设置 Soul",
+    "noSoulHint": "从下方模板中选择一个，或自定义创建",
+    "active": "启用中",
+    "edit": "编辑",
+    "preview": "预览",
+    "apply": "启用",
+    "previewTitle": "模板预览",
+    "addTemplate": "新建模板",
+    "editTemplate": "编辑模板",
+    "confirmDelete": "再次点击确认删除",
+    "editSoulTitle": "编辑 Soul",
+    "newTemplateTitle": "新建模板",
+    "editTemplateTitle": "编辑模板",
+    "editorPlaceholder": "在这里编写 SOUL.md 内容...\n\n定义 AI 助手的人格、风格和行为准则。",
+    "saveAndApply": "保存并启用",
+    "templateNamePlaceholder": "模板名称",
+    "templateDescPlaceholder": "简短描述（可选）",
+    "iconPickerLabel": "模板图标",
+    "iconOptions": {
+      "sparkles": "灵感",
+      "target": "专业",
+      "squareTerminal": "开发者",
+      "palette": "创意",
+      "bookOpen": "知识",
+      "handshake": "陪伴",
+      "brain": "策略",
+      "rocket": "冲劲",
+      "lightbulb": "想法",
+      "bot": "助手",
+      "globe": "探索",
+      "heart": "关怀",
+      "wrench": "构建"
+    },
+    "untitled": "未命名模板",
+    "none": "未设置 Soul",
+    "capsuleSwitching": "切换中..."
+  },
+  "skills": {
+    "title": "技能",
+    "description": "管理内置、已安装以及工作区中的技能",
+    "searchPlaceholder": "搜索技能...",
+    "empty": "没有匹配的技能",
+    "views": {
+      "installed": "已安装",
+      "market": "ClawHub",
+      "manual": "手动导入"
+    },
+    "actions": {
+      "refresh": "刷新",
+      "refreshing": "加载中...",
+      "enable": "启用",
+      "disable": "禁用",
+      "showMore": "展开",
+      "showLess": "收起",
+      "saveKey": "保存密钥",
+      "installing": "安装中..."
+    },
+    "summary": {
+      "total": "{{count}} 个技能",
+      "shown": "显示 {{count}} 个"
+    },
+    "paths": {
+      "workspace": "工作区",
+      "managed": "托管目录"
+    },
+    "groups": {
+      "workspace": "工作区技能",
+      "builtIn": "内置技能",
+      "installed": "已安装技能",
+      "extra": "额外技能",
+      "other": "其他技能"
+    },
+    "status": {
+      "enabled": "已启用",
+      "disabled": "已禁用",
+      "bundled": "内置"
+    },
+    "labels": {
+      "missing": "缺失项",
+      "reason": "原因",
+      "apiKey": "API Key",
+      "envHint": "主环境变量：{{env}}"
+    },
+    "missingKinds": {
+      "tool": "缺少对应工具",
+      "config": "缺少配置",
+      "os": "当前系统不支持"
+    },
+    "messages": {
+      "enabled": "技能已启用",
+      "disabled": "技能已禁用",
+      "keyUpdated": "密钥已更新",
+      "installed": "安装完成"
+    },
+    "market": {
+      "searchPlaceholder": "搜索 ClawHub 技能...",
+      "search": "搜索",
+      "searching": "搜索中...",
+      "emptyState": "输入关键词后即可搜索并安装 ClawHub 技能。",
+      "loginRequired": "请先完成 ClawHub 登录，然后再搜索和安装技能。",
+      "noResults": "没有找到匹配的 ClawHub 技能",
+      "installHint": "搜索结果将安装到当前 OpenClaw 工作区",
+      "install": "安装",
+      "forceInstall": "强制安装",
+      "reinstall": "重新安装",
+      "installing": "安装中...",
+      "installedBadge": "已安装",
+      "updatedAt": "更新于 {{date}}",
+      "cliReady": "ClawHub CLI 已就绪",
+      "cliMissing": "首次安装时会自动准备 ClawHub CLI",
+      "cliUnavailable": "当前 Node.js 运行时未就绪，暂时无法安装 ClawHub 技能",
+      "prepareCli": "准备 ClawHub CLI",
+      "preparing": "准备中...",
+      "noSummary": "这个技能暂时没有摘要信息。",
+      "auth": {
+        "title": "ClawHub 登录",
+        "description": "先完成浏览器登录，再搜索和安装 ClawHub 技能。",
+        "account": "当前账户：{{account}}",
+        "browserTitle": "浏览器登录",
+        "browserHint": "点击后会直接触发 `clawhub login`，自动打开浏览器完成授权。",
+        "tokenLabel": "ClawHub API Token（可选）",
+        "tokenPlaceholder": "粘贴你的 ClawHub token",
+        "tokenHint": "如果浏览器登录不可用，仍然可以手动粘贴 token。登录成功后，后续搜索会自动带上认证信息。",
+        "states": {
+          "loggedOut": "未登录",
+          "verified": "已登录并验证",
+          "tokenSaved": "已保存 token，等待验证"
+        },
+        "actions": {
+          "browserLogin": "浏览器登录",
+          "openingBrowser": "等待浏览器完成...",
+          "login": "登录",
+          "loggingIn": "登录中...",
+          "logout": "退出登录",
+          "loggingOut": "退出中...",
+          "refresh": "刷新状态",
+          "refreshing": "刷新中..."
+        },
+        "messages": {
+          "loggedIn": "ClawHub 已登录。",
+          "loggedInHandle": "ClawHub 已登录 {{handle}}。",
+          "loggedOut": "ClawHub 已退出登录。"
+        },
+        "errors": {
+          "invalidToken": "这个 ClawHub token 无效或已过期，请换一个 token 再试。",
+          "notLoggedIn": "当前还没有登录 ClawHub。",
+          "network": "暂时无法验证 ClawHub 登录状态，请稍后重试。"
+        }
+      },
+      "errors": {
+        "rateLimited": "ClawHub 搜索过于频繁，请稍后再试。",
+        "rateLimitedRetry": "ClawHub 搜索过于频繁，请在 {{seconds}} 秒后重试。",
+        "requiresForce": "这个技能被 ClawHub 标记为可疑内容；如果你确认来源可信，可以点击“强制安装”继续。"
+      },
+      "forceConfirm": "ClawHub 已将 {{slug}} 标记为可疑技能。确认仍要强制安装吗？",
+      "messages": {
+        "cliReady": "ClawHub CLI 已准备完成",
+        "cliReadyVersion": "ClawHub CLI 已准备完成（v{{version}}）",
+        "installed": "已安装 {{slug}}。新的 OpenClaw 会话会加载这个技能。"
+      }
+    },
+    "manual": {
+      "title": "手动导入技能",
+      "description": "把本地目录、本地压缩包或远程地址里的技能复制到当前 OpenClaw 工作区。",
+      "import": "导入技能",
+      "importing": "导入中...",
+      "sources": {
+        "directory": "本地文件夹",
+        "archive": "压缩文件",
+        "url": "远程地址"
+      },
+      "labels": {
+        "directory": "本地技能目录",
+        "archive": "本地压缩包路径",
+        "url": "远程地址"
+      },
+      "hints": {
+        "directory": "可以直接指向技能目录，或者指向一个只包含单个技能的仓库目录。",
+        "archive": "支持 `.zip`、`.skill`、`.tar.gz`、`.tgz`，导入时会自动解压并识别技能目录。",
+        "url": "支持 GitHub 仓库地址，以及直接指向压缩包的 http(s) 链接。"
+      },
+      "placeholders": {
+        "directory": "~/dev/my-skill",
+        "archive": "~/Downloads/my-skill.zip",
+        "url": "https://github.com/example/my-skill"
+      },
+      "messages": {
+        "imported": "已导入 {{skillName}}。新的 OpenClaw 会话会加载这个技能。"
+      },
+      "errors": {
+        "workspaceNotConfigured": "当前还没有可用的工作区目录，暂时无法导入技能。",
+        "sourceNotFound": "没有找到你填写的本地路径，请检查路径是否正确。",
+        "invalidPath": "这个本地路径无效，或与当前导入类型不匹配。",
+        "unsupportedArchive": "暂不支持这个压缩格式，请使用 .zip、.skill、.tar.gz 或 .tgz。",
+        "invalidUrl": "这个远程地址无效，当前只支持 GitHub 仓库地址或直接压缩包链接。",
+        "downloadFailed": "远程技能下载失败，请稍后再试或改用本地导入。",
+        "missingSkill": "没有在来源中找到可导入的 SKILL.md，请直接指向具体技能目录或仓库。",
+        "ambiguousSkill": "在来源中找到了多个技能，请直接指向你要导入的那一个。",
+        "skillExists": "工作区里已经存在同名技能，且这次导入没有启用覆盖。"
+      }
+    },
+    "reasons": {
+      "disabled": "已禁用",
+      "blockedByAllowlist": "被 allowlist 阻止"
+    }
+  },
+  "plugins": {
+    "title": "插件",
+    "description": "管理外部渠道和集成",
+    "channels": {
+      "status": "运行状态",
+      "notConnected": "网关未连接，请先在设置中配置网关地址",
+      "notLoaded": "未加载",
+      "loaded": "已加载",
+      "installable": "可接入",
+      "runningReady": "已运行",
+      "activating": "激活中",
+      "pendingActivation": "待激活",
+      "pendingConnection": "已配置",
+      "readyToConnect": "支持接入",
+      "empty": "当前筛选条件下没有可显示的渠道",
+      "noDescription": "该渠道暂时没有说明信息",
+      "searchTitle": "搜索渠道",
+      "searchHint": "按渠道名称、平台或别名快速查找。",
+      "searchPlaceholder": "搜索渠道...",
+      "filterTitle": "查看范围",
+      "filterHint": "在已运行渠道与待接入渠道之间快速切换。",
+      "docs": "文档",
+      "accounts": "账户数",
+      "defaultAccount": "默认账户",
+      "accountsHint": "管理账号级覆盖配置，并选择默认使用的账户。",
+      "accountsOptionalHint": "多账号是可选能力。只有在你确实需要独立凭据或独立路由时，再新增额外账户。",
+      "accountsOptionalEmpty": "当前这个渠道正在使用顶层默认配置。只有在新增额外账户后，才需要管理账号级覆盖配置。",
+      "accountQuickStart": "账户快速接入",
+      "accountQuickStartHint": "这里只显示让这个账户先跑起来所需的关键字段。",
+      "accountAdvanced": "账户高级设置",
+      "accountAdvancedHint": "用于更复杂场景的完整账号级覆盖配置。",
+      "makeDefault": "设为默认",
+      "newAccountId": "新账户 ID",
+      "newAccountPlaceholder": "account-id",
+      "addAccount": "新增账户",
+      "accountSchemaUnavailable": "该渠道暂时没有可用的账号级配置 Schema。",
+      "archetype": "接入类型",
+      "schemaPending": "ClawBox 对该渠道的动态配置面板将在下一阶段接入。",
+      "schemaUnavailable": "该渠道暂时没有可用的配置 Schema。",
+      "rawConfigFallback": "该渠道暂时没有结构化的 Schema，但你仍然可以在下方直接编辑原始配置。",
+      "rawConfigEditor": "原始配置",
+      "invalidJson": "JSON 配置格式无效。",
+      "notLoadedHint": "这个渠道已经存在于 ClawBox 的目录中，但当前 OpenClaw 运行时还没有加载它。你仍然可以先填写配置。",
+      "noDiagnostics": "暂无诊断信息。",
+      "rawStatus": "原始状态",
+      "noAccounts": "未配置账户",
+      "enabled": "已启用",
+      "disabled": "已禁用",
+      "running": "运行中",
+      "connected": "已连接",
+      "disconnected": "未连接",
+      "notConfigured": "未配置",
+      "configured": "已配置",
+      "change": "修改",
+      "error": "错误",
+      "saveConfig": "保存配置",
+      "saveAndConnect": "保存并连接",
+      "saving": "保存中...",
+      "configSaved": "配置已保存！网关将自动应用更改。",
+      "logout": "注销",
+      "logoutConfirm": "将清除已存储的凭据，是否继续？",
+      "credentials": "凭据配置",
+      "accessPolicy": "访问策略",
+      "dmPolicy": "私聊策略",
+      "dmPolicyPairing": "配对模式（新用户需审批）",
+      "dmPolicyOpen": "开放（任何人可私聊）",
+      "dmPolicyAllowlist": "仅白名单",
+      "dmPolicyDisabled": "禁用",
+      "groupPolicy": "群组策略",
+      "groupPolicyOpen": "开放",
+      "groupPolicyAllowlist": "仅白名单",
+      "groupPolicyDisabled": "禁用",
+      "allowFrom": "允许的用户/ID",
+      "allowFromHint": "逗号分隔的用户 ID",
+      "advanced": "高级设置",
+      "historyLimit": "群组历史消息数",
+      "dmHistoryLimit": "私聊历史消息数",
+      "streaming": "流式输出模式",
+      "requireMention": "群组中需要 @提及 才响应",
+      "enableChannel": "启用",
+      "activateChannel": "尝试激活",
+      "activateHint": "在保存配置后使用它，重启网关并检查这个渠道是否能进入当前运行态。",
+      "disableChannel": "停用",
+      "applying": "应用中...",
+      "startHint": "网关将重启以应用更改",
+      "testConnection": "测试",
+      "testing": "测试中...",
+      "testSuccess": "凭据验证通过",
+      "testFailed": "凭据验证失败",
+      "probeNoAccount": "网关未返回此通道的账户信息，请检查网关是否正常运行",
+      "probeNotConfigured": "通道凭据未配置完成，请先填写并保存凭据",
+      "probeNotEnabled": "通道未启用，探测需要先启用通道",
+      "probeSkipped": "网关跳过了探测，请检查通道配置",
+      "filters": {
+        "all": "全部",
+        "loaded": "已加载",
+        "installable": "可接入"
+      },
+      "summary": {
+        "total": "{{count}} 个渠道",
+        "loaded": "{{count}} 个已加载",
+        "installable": "{{count}} 个可接入"
+      },
+      "legend": {
+        "running": "已经进入当前运行态，可以正常处理消息。",
+        "pending": "已经配置或正在激活，但还没有完全就绪。",
+        "available": "ClawBox 已认识它，随时可以开始接入。"
+      },
+      "sections": {
+        "overview": "概览",
+        "quickStart": "快速接入",
+        "setup": "接入说明",
+        "accounts": "账户",
+        "configuration": "配置",
+        "advanced": "高级设置",
+        "access": "访问控制",
+        "diagnostics": "诊断"
+      },
+      "advancedHint": "面向高级用户的可选设置。首次接入通常不需要先看这里。",
+      "showAdvanced": "显示高级设置",
+      "hideAdvanced": "收起高级设置",
+      "quickStart": {
+        "default": "先填写最必要的凭据，再进行连接。",
+        "telegram": "先填入从 @BotFather 获取的 Bot Token，然后点击“保存并连接”。",
+        "slack": "先填写你实际使用的 Bot 凭据，然后点击“保存并连接”。",
+        "feishu": "先填写 App ID 和 App Secret，再执行“保存并连接”。",
+        "discord": "先填入机器人 Token，保存后再连接 Discord。",
+        "irc": "先填写 IRC 服务器和昵称，再点击“保存并连接”。",
+        "googlechat": "先填好最基本的 Google Chat Webhook 设置，再保存并连接。",
+        "signal": "先填写本地 Signal 桥接设置，再点击“保存并连接”。",
+        "imessage": "先配置本地桥接路径，再点击“保存并连接”。",
+        "whatsapp": "先启动二维码登录流程，扫码后再回来继续。",
+        "zalouser": "先启动二维码登录流程，用 Zalo 扫码后再继续。"
+      },
+      "quickStartUnavailable": "这个渠道暂时没有可用的快速接入字段，请使用下方高级设置。",
+      "auth": {
+        "start": "开始登录",
+        "restart": "重新登录",
+        "cancel": "取消跟踪",
+        "qrAlt": "渠道登录二维码",
+        "states": {
+          "idle": "空闲",
+          "starting": "准备登录中",
+          "awaiting_scan": "等待扫码",
+          "connecting": "等待确认",
+          "connected": "已连接",
+          "error": "登录失败",
+          "cancelled": "已取消跟踪",
+          "unsupported": "不支持"
+        }
+      },
+      "catalog": {
+        "telegram": {
+          "detailLabel": "Telegram 机器人",
+          "description": "通过 Bot API 接入 Telegram 机器人。"
+        },
+        "whatsapp": {
+          "detailLabel": "WhatsApp Web",
+          "description": "通过二维码登录流程绑定你的 WhatsApp 账户。"
+        },
+        "discord": {
+          "detailLabel": "Discord 机器人",
+          "description": "以 Discord Bot 的方式接入 OpenClaw。"
+        },
+        "irc": {
+          "detailLabel": "IRC",
+          "description": "使用服务器、昵称和频道路由接入经典 IRC 网络。"
+        },
+        "googlechat": {
+          "detailLabel": "Google Chat",
+          "description": "通过 Google Workspace Chat API 接入企业聊天。"
+        },
+        "slack": {
+          "detailLabel": "Slack 机器人",
+          "description": "通过 Socket Mode 或 HTTP Events 接入 Slack 工作区。"
+        },
+        "signal": {
+          "detailLabel": "Signal REST",
+          "description": "基于 signal-cli 的 Signal 消息接入。"
+        },
+        "imessage": {
+          "detailLabel": "iMessage",
+          "description": "通过本地 imsg 桥接接入 iMessage。"
+        },
+        "feishu": {
+          "detailLabel": "飞书 / Lark",
+          "description": "面向飞书与 Lark 工作区的企业消息接入。"
+        },
+        "nostr": {
+          "detailLabel": "Nostr",
+          "description": "面向 Nostr 生态的加密私信接入。"
+        },
+        "msteams": {
+          "detailLabel": "Microsoft Teams",
+          "description": "基于 Bot Framework 接入 Microsoft Teams。"
+        },
+        "mattermost": {
+          "detailLabel": "Mattermost 机器人",
+          "description": "面向自托管团队的 Mattermost 插件式接入。"
+        },
+        "nextcloud-talk": {
+          "detailLabel": "Nextcloud Talk",
+          "description": "通过 Nextcloud Talk 接入自托管消息系统。"
+        },
+        "matrix": {
+          "detailLabel": "Matrix",
+          "description": "面向 Matrix 房间与私聊的开放协议接入。"
+        },
+        "bluebubbles": {
+          "detailLabel": "BlueBubbles",
+          "description": "通过 macOS BlueBubbles 桥接接入 iMessage 工作流。"
+        },
+        "line": {
+          "detailLabel": "LINE 机器人",
+          "description": "通过 LINE Messaging API 接入机器人渠道。"
+        },
+        "zalo": {
+          "detailLabel": "Zalo 机器人",
+          "description": "面向越南市场的 Zalo Bot API 接入。"
+        },
+        "zalouser": {
+          "detailLabel": "Zalo 个人号",
+          "description": "通过二维码登录接入个人号 Zalo。"
+        },
+        "synology-chat": {
+          "detailLabel": "Synology Chat",
+          "description": "通过 Webhook 方式接入 Synology Chat。"
+        },
+        "tlon": {
+          "detailLabel": "Tlon",
+          "description": "面向 Urbit / Tlon 的消息接入。"
+        }
+      },
+      "pairing": {
+        "title": "配对管理",
+        "pending": "待审批请求",
+        "noPending": "暂无待审批的配对请求",
+        "approve": "批准",
+        "approved": "已批准！",
+        "code": "配对码",
+        "sender": "发送者",
+        "requestedAt": "请求时间",
+        "approvedUsers": "已授权用户",
+        "noApproved": "暂无已授权用户",
+        "hint": "私聊策略为「配对模式」时，新用户需先给 Bot 发消息获取配对码，管理员在此审批"
+      },
+      "telegram": {
+        "title": "Telegram",
+        "description": "将 Telegram 机器人连接到你的 AI 助手",
+        "botToken": "Bot Token",
+        "botTokenHint": "从 Telegram 的 @BotFather 获取",
+        "botTokenPlaceholder": "123456:ABC-DEF1234ghIkl..."
+      },
+      "slack": {
+        "title": "Slack",
+        "description": "通过 Socket Mode 连接到 Slack 工作区",
+        "botToken": "Bot Token (xoxb-)",
+        "botTokenHint": "Slack 应用的 OAuth Bot Token",
+        "botTokenPlaceholder": "xoxb-...",
+        "appToken": "App Token (xapp-)",
+        "appTokenHint": "具有 connections:write 权限的 App-Level Token",
+        "appTokenPlaceholder": "xapp-1-...",
+        "mode": "连接模式",
+        "modeSocket": "Socket Mode",
+        "modeHttp": "HTTP Events",
+        "signingSecret": "Signing Secret",
+        "signingSecretHint": "HTTP 模式必填"
+      },
+      "feishu": {
+        "title": "飞书 / Lark",
+        "description": "连接到飞书或 Lark 工作区",
+        "appId": "App ID",
+        "appIdHint": "从飞书/Lark 开发者后台获取",
+        "appIdPlaceholder": "cli_...",
+        "appSecret": "App Secret",
+        "appSecretHint": "请妥善保管此密钥",
+        "domain": "平台",
+        "domainFeishu": "飞书（中国）",
+        "domainLark": "Lark（国际）",
+        "connectionMode": "连接模式",
+        "connectionWebsocket": "WebSocket",
+        "connectionWebhook": "Webhook",
+        "encryptKey": "Encrypt Key",
+        "encryptKeyHint": "可选，用于消息加密",
+        "verificationToken": "Verification Token",
+        "verificationTokenHint": "可选，用于 Webhook 验证"
+      }
+    }
+  }
+}
