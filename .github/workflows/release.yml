@@ -1,0 +1,123 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            artifact_name: clawbox-macos
+            build_command: npm run tauri:build
+            release_asset_spec: src-tauri/target/release/bundle/dmg=.dmg
+          - os: windows-latest
+            artifact_name: clawbox-windows
+            build_command: npm run tauri:build-win
+            release_asset_spec: src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis=.exe
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Verify tag matches package version
+        shell: bash
+        env:
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: |
+          VERSION="$(node -e "const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json', 'utf8')); process.stdout.write(pkg.version)")"
+          if [ "v${VERSION}" != "${GITHUB_REF_NAME}" ]; then
+            echo "Release tag ${GITHUB_REF_NAME} does not match package.json version ${VERSION}"
+            exit 1
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build release artifacts
+        run: ${{ matrix.build_command }}
+
+      - name: Collect release assets
+        run: node scripts/collect-release-assets.mjs release-assets "${{ matrix.release_asset_spec }}"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: release-assets/**/*
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-artifacts
+          merge-multiple: true
+
+      - name: Generate checksums
+        shell: bash
+        run: |
+          cd release-artifacts
+          node ../scripts/write-checksums.mjs . ../CHECKSUMS.txt
+
+      - name: Resolve release notes
+        id: release_notes
+        shell: bash
+        env:
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: |
+          NOTES_PATH="docs/releases/${GITHUB_REF_NAME}.md"
+          if [ -f "${NOTES_PATH}" ]; then
+            echo "has_notes=true" >> "$GITHUB_OUTPUT"
+            echo "notes_path=${NOTES_PATH}" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_notes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish GitHub release with hand-written notes
+        if: steps.release_notes.outputs.has_notes == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release-artifacts/**/*
+            CHECKSUMS.txt
+          body_path: ${{ steps.release_notes.outputs.notes_path }}
+
+      - name: Publish GitHub release with generated notes fallback
+        if: steps.release_notes.outputs.has_notes != 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release-artifacts/**/*
+            CHECKSUMS.txt
+          generate_release_notes: true

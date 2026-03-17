@@ -1,0 +1,24 @@
+{
+  "identifier": "default",
+  "description": "Default permissions for ClawBox",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "shell:allow-execute",
+    "shell:allow-open",
+    "shell:allow-spawn",
+    "shell:allow-kill",
+    "dialog:allow-open",
+    "dialog:allow-save",
+    "store:allow-get",
+    "store:allow-set",
+    "store:allow-save",
+    "process:allow-exit",
+    "process:allow-restart",
+    "opener:allow-open-url",
+    "notification:default",
+    "deep-link:default",
+    "window-state:allow-restore-state",
+    "window-state:allow-save-window-state"
+  ]
+}

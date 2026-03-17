@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ClawBox",
+  "identifier": "ai.clawbox.desktop",
+  "version": "2026.3.17-2",
+  "build": {
+    "beforeDevCommand": "node scripts/sync-version.mjs && npm run build:backend && npm run dev:frontend",
+    "devUrl": "http://localhost:14200",
+    "beforeBuildCommand": "node scripts/sync-version.mjs && npm run build:frontend && npm run build:backend",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "ClawBox",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 800,
+        "minHeight": 600,
+        "decorations": true,
+        "titleBarStyle": "Visible"
+      }
+    ],
+    "withGlobalTauri": true,
+    "security": {
+      "csp": null,
+      "capabilities": [
+        "default"
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app",
+      "dmg",
+      "nsis"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/64x64.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico",
+      "icons/icon.png"
+    ],
+    "resources": {
+      "../package.json": "package.json"
+    },
+    "externalBin": [
+      "binaries/clawbox-core"
+    ],
+    "macOS": {
+      "minimumSystemVersion": "13.0"
+    }
+  }
+}

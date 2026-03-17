@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security policy
+    url: https://github.com/FantWu2024/WrapperBox/blob/main/SECURITY.md
+    about: Please read the private reporting guidance before sharing a vulnerability.

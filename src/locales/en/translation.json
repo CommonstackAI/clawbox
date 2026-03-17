@@ -1,0 +1,763 @@
+{
+  "nav": {
+    "chat": "Chat",
+    "soul": "Soul",
+    "cron": "Cron",
+    "plugins": "Plugins",
+    "skills": "Skills",
+    "settings": "Settings"
+  },
+  "chat": {
+    "welcomeMessage": "How can I help you?",
+    "welcomeMessages": [
+      "How can I help you?",
+      "What would you like to talk about?",
+      "What can I do for you?",
+      "Any questions for me?",
+      "Let's start a conversation"
+    ],
+    "startConversation": "Start a conversation",
+    "startHint": "Type a message below to begin",
+    "placeholder": "Type a message...",
+    "provider": "Provider",
+    "model": "Model",
+    "modelNotSet": "not set",
+    "modelSwitched": "Model will switch to {{model}} on next send",
+    "pendingModelRestartHint": "{{model}} is queued for the next send. Applying it will restart the OpenClaw gateway, and ClawBox may briefly show the gateway as unavailable.",
+    "send": "Send",
+    "stop": "Stop",
+    "reasoningAvailable": "Model generated reasoning",
+    "toolCall": {
+      "badge": "Tool Call",
+      "tool": "Tool",
+      "args": "Args",
+      "result": "Result",
+      "usingTool": "Using tool",
+      "running": "Running...",
+      "failed": "Failed",
+      "emptyResult": "(no result)"
+    }
+  },
+  "sessions": {
+    "title": "Sessions",
+    "count": "{{count}} sessions",
+    "noSessions": "No sessions yet",
+    "startConversation": "Start a conversation to create a session",
+    "deleteTitle": "Delete Session",
+    "deleteConfirm": "Are you sure you want to delete this session? This cannot be undone.",
+    "compacted": "Compacted",
+    "info": "Session Info",
+    "titleLabel": "Title",
+    "originalSessionId": "OpenClaw Session ID",
+    "lastActive": "Last Active",
+    "messages": "Messages",
+    "deleteSession": "Delete Session"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Configure your OpenClaw gateway connection and upstream model providers",
+    "gatewayUrl": "Gateway URL",
+    "checkConnection": "Check Connection",
+    "connected": "Connected",
+    "connectionFailed": "Connection failed",
+    "models": "Available Models",
+    "defaultModel": "Default Model",
+    "modelSelectPlaceholder": "Select a model...",
+    "modelEmptyHint": "No models available yet. Check your gateway connection or save the provider configuration first.",
+    "currentConfig": "Current Configuration",
+    "unsavedChanges": "You have unsaved changes",
+    "providerConfig": "AI Provider",
+    "providerConfigDesc": "Choose an upstream model provider and configure its model endpoint. CommonStack stays in the recommended position, while Custom Provider supports OpenAI-compatible or Anthropic-compatible endpoints.",
+    "providerSelectLabel": "Provider",
+    "providerCommonstack": "CommonStack",
+    "providerCommonstackRecommended": "CommonStack (Recommended)",
+    "providerCustom": "Custom Provider",
+    "providerCommonstackHint": "Use a CommonStack node and API key for the recommended project experience.",
+    "providerCustomHint": "Connect to OpenAI-compatible or Anthropic-compatible API endpoints. Enter a custom Base URL, compatibility, and API key below.",
+    "providerNode": "API Node",
+    "providerCompatibilityLabel": "Endpoint compatibility",
+    "providerCompatibilityOpenai": "OpenAI-compatible",
+    "providerCompatibilityOpenaiDesc": "Uses /chat/completions",
+    "providerCompatibilityAnthropic": "Anthropic-compatible",
+    "providerCompatibilityAnthropicDesc": "Uses /messages",
+    "providerBaseUrl": "Base URL",
+    "providerApiKeyLabel": "API Key",
+    "providerSavedKeys": "Saved API Keys",
+    "providerModelRefreshHint": "After switching providers, save the configuration and wait for the gateway to reload before choosing a default model for that provider.",
+    "providerBaseUrlRequired": "Base URL is required",
+    "providerApiKeyRequired": "API key is required",
+    "providerCommonstackApiKeyError": "CommonStack API keys must start with \"ak-\"",
+    "providerNoModels": "No models were returned from this provider",
+    "providerSaveFailed": "Failed to save provider configuration",
+    "providerEndpointUnavailable": "Unable to reach the provider endpoint ({{baseUrl}}). Check the Base URL, compatibility mode, API key, and local network or TLS settings.",
+    "gatewayRestartHint": "This change will restart the OpenClaw gateway. ClawBox may briefly show the gateway as unavailable, which is expected.",
+    "gatewayRestartingTitle": "OpenClaw gateway is restarting",
+    "gatewayRestartingBody": "ClawBox may briefly show the gateway as unavailable and will recover automatically once the gateway comes back.",
+    "gatewayRestartDelayedTitle": "Still waiting for the OpenClaw gateway",
+    "gatewayRestartDelayedBody": "ClawBox may be unable to load models or plugin status until the gateway recovers. Please try again shortly.",
+    "providerLabel": "Provider",
+    "titleModel": "Titles & Summaries",
+    "titleModelDesc": "Conversation titles and tool summaries automatically follow OpenClaw's current default model.",
+    "titleBaseUrl": "Base URL",
+    "titleApiKey": "API Key",
+    "titleModelSelect": "Current model",
+    "titleModelHint": "Change the default model above to affect both features.",
+    "fetchModels": "Fetch Models",
+    "testModel": "Test",
+    "testResult": "Test Result",
+    "testing": "Testing...",
+    "fetchingModels": "Fetching...",
+    "envStatus": "Runtime Environment",
+    "envMode": "Environment Mode",
+    "envPortable": "Portable (Built-in)",
+    "envSystem": "System Install",
+    "envNotConfigured": "Not Configured",
+    "notDetected": "Not Detected",
+    "envNotReady": "Environment not ready",
+    "envWarning": "Environment is usable, but has warnings",
+    "envSystemNodeWarning": "System Node.js is currently {{detected}}. {{expected}} is recommended. You can continue using the connected gateway, but upgrading Node.js is still recommended before rebuilding or restarting the environment.",
+    "envDebugInfo": "Show environment probe details",
+    "envDebugGateway": "Gateway",
+    "envDebugNode": "Node.js Probe",
+    "envDebugOpenclaw": "OpenClaw Probe",
+    "envDebugEmpty": "No debug info available",
+    "reconfigure": "Reconfigure Environment",
+    "reconfigureTitle": "Reconfigure Environment",
+    "reconfigureDesc": "Reconfigure the OpenClaw environment? This will take you back to the setup wizard.",
+    "reconfigureConfirm": "Confirm Reconfigure",
+    "reconfigureTransitionTitle": "Opening setup wizard",
+    "reconfigureTransitionDesc": "Switching to the OpenClaw environment flow..."
+  },
+  "common": {
+    "save": "Save",
+    "saved": "Saved!",
+    "reset": "Reset",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "yes": "Yes",
+    "no": "No",
+    "configured": "Configured",
+    "loading": "Loading..."
+  },
+  "startup": {
+    "connectingServer": "Connecting to services...",
+    "waitingServer": "Waiting for the ClawBox backend...",
+    "loadingConfig": "Loading configuration...",
+    "checkingSetup": "Checking setup...",
+    "checkingVersion": "Checking OpenClaw version...",
+    "waitingGateway": "Waiting for OpenClaw to finish starting...",
+    "loadingAgents": "Loading agents...",
+    "errorHint": "Check that both ClawBox and OpenClaw started correctly, then reopen the app.",
+    "errors": {
+      "serverTimeout": "Timed out while connecting to the ClawBox backend.",
+      "gatewayTimeout": "Timed out while waiting for OpenClaw to start."
+    }
+  },
+  "statusFooter": {
+    "title": "Runtime",
+    "stateOnline": "Online",
+    "stateOffline": "Offline",
+    "gatewayConnected": "Gateway Ready",
+    "gatewayDisconnected": "Gateway Down",
+    "gatewayRunning": "Gateway server is running",
+    "gatewayWaiting": "Waiting for gateway server...",
+    "appLabel": "ClawBox",
+    "runtimeLabel": "OpenClaw",
+    "nodeLabel": "Node.js",
+    "modeLabel": "Mode",
+    "version": "v{{version}}",
+    "appVersion": "ClawBox v{{version}}",
+    "openclawVersion": "OpenClaw {{version}}",
+    "nodeVersionMode": "Node.js {{version}} ({{mode}})",
+    "nodeWarning": "Node.js {{version}}, recommend {{target}}",
+    "modePortable": "Portable",
+    "modeSystem": "System",
+    "logs": "Logs"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "suggestions": {
+    "title": "Suggested questions",
+    "loading": "Generating suggestions..."
+  },
+  "cron": {
+    "title": "Cron Jobs",
+    "description": "Manage OpenClaw scheduled tasks",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "jobCount": "{{count}} jobs",
+    "addJob": "Add Job",
+    "create": "Create",
+    "noJobs": "No cron jobs yet",
+    "enable": "Enable",
+    "disable": "Disable",
+    "runNow": "Run Now",
+    "viewRuns": "Run History",
+    "runHistory": "Run History",
+    "noRuns": "No runs yet",
+    "basicInfo": "Basic Info",
+    "jobName": "Job Name",
+    "jobNamePlaceholder": "e.g. Daily Summary",
+    "jobDescription": "Description (optional)",
+    "jobDescriptionPlaceholder": "What this job does",
+    "enableOnCreate": "Enable after creation",
+    "schedule": "Schedule",
+    "schedule_every": "Fixed Interval",
+    "schedule_cron": "Cron Expression",
+    "schedule_at": "One-time",
+    "every": "Every",
+    "minutes": "minutes",
+    "hours": "hours",
+    "days": "days",
+    "cronExpression": "Cron Expression",
+    "timezone": "Timezone",
+    "runAt": "Run At",
+    "execution": "Execution",
+    "sessionTarget": "Session Target",
+    "mainSession": "Main Session",
+    "isolated": "Isolated",
+    "wakeMode": "Wake Mode",
+    "wakeNow": "Immediate",
+    "wakeHeartbeat": "Next Heartbeat",
+    "payloadType": "Payload Type",
+    "systemEvent": "System Event",
+    "agentTurn": "Agent Turn",
+    "agentMessage": "Message",
+    "agentMessagePlaceholder": "Message to send to the agent",
+    "eventText": "Event Text",
+    "eventTextPlaceholder": "System event content",
+    "timeout": "Timeout",
+    "seconds": "seconds",
+    "delivery": "Delivery",
+    "deliveryMode": "Delivery Mode",
+    "deliveryNone": "None",
+    "deliveryAnnounce": "Announce",
+    "deliveryChannel": "Channel",
+    "deliveryTo": "Target",
+    "deliveryToPlaceholder": "Phone / Chat ID",
+    "delivery_announce": "Announce",
+    "delivery_webhook": "Webhook",
+    "delivery_none": "None",
+    "deliveryBestEffort": "Best effort delivery (ignore failures)",
+    "deliveryChannelHint": "Select a connected channel to receive results",
+    "deleteAfterRun": "Delete after execution",
+    "model": "Model",
+    "modelPlaceholder": "Leave empty for default model",
+    "nextRun": "Next run",
+    "edit": "Edit",
+    "editJob": "Edit Job",
+    "confirmDelete": "Confirm",
+    "statusTitle": "Status",
+    "statusLabel": "Status",
+    "createdAt": "Created",
+    "lastRun": "Last Run",
+    "lastError": "Error",
+    "scheduleType": "Schedule",
+    "refresh": "Refresh",
+    "triggered": "Triggered",
+    "running": "Running..."
+  },
+  "soul": {
+    "title": "Soul Market",
+    "description": "Define your AI assistant's personality and style",
+    "currentSoul": "Currently Active",
+    "templateSection": "Template Library",
+    "noSoul": "No Soul configured",
+    "noSoulHint": "Pick a template below or create your own",
+    "active": "Active",
+    "edit": "Edit",
+    "preview": "Preview",
+    "apply": "Apply",
+    "previewTitle": "Template Preview",
+    "addTemplate": "New Template",
+    "editTemplate": "Edit Template",
+    "confirmDelete": "Click again to confirm",
+    "editSoulTitle": "Edit Soul",
+    "newTemplateTitle": "New Template",
+    "editTemplateTitle": "Edit Template",
+    "editorPlaceholder": "Write your SOUL.md content here...\n\nDefine your AI assistant's personality, style, and behavior.",
+    "saveAndApply": "Save & Apply",
+    "templateNamePlaceholder": "Template name",
+    "templateDescPlaceholder": "Brief description (optional)",
+    "iconPickerLabel": "Template icon",
+    "iconOptions": {
+      "sparkles": "Sparkles",
+      "target": "Professional",
+      "squareTerminal": "Developer",
+      "palette": "Creative",
+      "bookOpen": "Knowledge",
+      "handshake": "Companion",
+      "brain": "Strategist",
+      "rocket": "Momentum",
+      "lightbulb": "Ideas",
+      "bot": "Assistant",
+      "globe": "Explorer",
+      "heart": "Care",
+      "wrench": "Builder"
+    },
+    "untitled": "Untitled Template",
+    "none": "No Soul",
+    "capsuleSwitching": "Switching..."
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "Manage bundled, installed, and workspace skills",
+    "searchPlaceholder": "Search skills...",
+    "empty": "No skills found.",
+    "views": {
+      "installed": "Installed",
+      "market": "ClawHub",
+      "manual": "Manual Import"
+    },
+    "actions": {
+      "refresh": "Refresh",
+      "refreshing": "Loading...",
+      "enable": "Enable",
+      "disable": "Disable",
+      "showMore": "Show More",
+      "showLess": "Show Less",
+      "saveKey": "Save Key",
+      "installing": "Installing..."
+    },
+    "summary": {
+      "total": "{{count}} skills",
+      "shown": "{{count}} shown"
+    },
+    "paths": {
+      "workspace": "Workspace",
+      "managed": "Managed"
+    },
+    "groups": {
+      "workspace": "Workspace Skills",
+      "builtIn": "Built-in Skills",
+      "installed": "Installed Skills",
+      "extra": "Extra Skills",
+      "other": "Other Skills"
+    },
+    "status": {
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "bundled": "Bundled"
+    },
+    "labels": {
+      "missing": "Missing",
+      "reason": "Reason",
+      "apiKey": "API Key",
+      "envHint": "Primary env: {{env}}"
+    },
+    "missingKinds": {
+      "tool": "Missing required tool",
+      "config": "Missing configuration",
+      "os": "Unsupported on this system"
+    },
+    "messages": {
+      "enabled": "Skill enabled",
+      "disabled": "Skill disabled",
+      "keyUpdated": "Key updated",
+      "installed": "Installed"
+    },
+    "market": {
+      "searchPlaceholder": "Search ClawHub skills...",
+      "search": "Search",
+      "searching": "Searching...",
+      "emptyState": "Search for a keyword to find and install skills from ClawHub.",
+      "loginRequired": "Please log in to ClawHub before searching or installing skills.",
+      "noResults": "No ClawHub skills matched your search",
+      "installHint": "Search results will be installed into the current OpenClaw workspace",
+      "install": "Install",
+      "forceInstall": "Force Install",
+      "reinstall": "Reinstall",
+      "installing": "Installing...",
+      "installedBadge": "Installed",
+      "updatedAt": "Updated {{date}}",
+      "cliReady": "ClawHub CLI ready",
+      "cliMissing": "ClawHub CLI will be prepared automatically on first install",
+      "cliUnavailable": "Node.js runtime is not ready yet, so ClawHub installs are unavailable",
+      "prepareCli": "Prepare ClawHub CLI",
+      "preparing": "Preparing...",
+      "noSummary": "This skill does not have a summary yet.",
+      "auth": {
+        "title": "ClawHub Login",
+        "description": "Complete browser login first, then search and install ClawHub skills.",
+        "account": "Account: {{account}}",
+        "browserTitle": "Browser Login",
+        "browserHint": "Click below to trigger `clawhub login` and finish authorization in your browser.",
+        "tokenLabel": "ClawHub API Token (Optional)",
+        "tokenPlaceholder": "Paste your ClawHub token",
+        "tokenHint": "If browser login is unavailable, you can still paste a token manually. After login, future searches will automatically send authenticated requests.",
+        "states": {
+          "loggedOut": "Logged out",
+          "verified": "Logged in and verified",
+          "tokenSaved": "Token saved, waiting for verification"
+        },
+        "actions": {
+          "browserLogin": "Browser Login",
+          "openingBrowser": "Waiting for Browser...",
+          "login": "Log In",
+          "loggingIn": "Logging In...",
+          "logout": "Log Out",
+          "loggingOut": "Logging Out...",
+          "refresh": "Refresh Status",
+          "refreshing": "Refreshing..."
+        },
+        "messages": {
+          "loggedIn": "ClawHub is logged in.",
+          "loggedInHandle": "ClawHub is logged in as {{handle}}.",
+          "loggedOut": "ClawHub has been logged out."
+        },
+        "errors": {
+          "invalidToken": "This ClawHub token is invalid or expired. Try a different token.",
+          "notLoggedIn": "ClawHub is not logged in yet.",
+          "network": "Unable to verify the ClawHub login status right now. Please try again later."
+        }
+      },
+      "errors": {
+        "rateLimited": "ClawHub search is being rate limited. Please try again shortly.",
+        "rateLimitedRetry": "ClawHub search is being rate limited. Try again in {{seconds}} seconds.",
+        "requiresForce": "ClawHub marked this skill as suspicious. If you trust the source, you can continue with Force Install."
+      },
+      "forceConfirm": "ClawHub has marked {{slug}} as suspicious. Force install anyway?",
+      "messages": {
+        "cliReady": "ClawHub CLI is ready",
+        "cliReadyVersion": "ClawHub CLI is ready (v{{version}})",
+        "installed": "Installed {{slug}}. Start a new OpenClaw session to load it."
+      }
+    },
+    "manual": {
+      "title": "Manual Skill Import",
+      "description": "Copy a skill from a local directory, local archive, or remote address into the current OpenClaw workspace.",
+      "import": "Import Skill",
+      "importing": "Importing...",
+      "sources": {
+        "directory": "Local Folder",
+        "archive": "Archive File",
+        "url": "Remote URL"
+      },
+      "labels": {
+        "directory": "Local skill directory",
+        "archive": "Local archive path",
+        "url": "Remote address"
+      },
+      "hints": {
+        "directory": "Point directly to a skill directory, or to a repository directory that contains exactly one skill.",
+        "archive": "Supports `.zip`, `.skill`, `.tar.gz`, and `.tgz`. The archive will be extracted and scanned for a skill directory.",
+        "url": "Supports GitHub repository URLs and direct http(s) archive links."
+      },
+      "placeholders": {
+        "directory": "~/dev/my-skill",
+        "archive": "~/Downloads/my-skill.zip",
+        "url": "https://github.com/example/my-skill"
+      },
+      "messages": {
+        "imported": "Imported {{skillName}}. Start a new OpenClaw session to load it."
+      },
+      "errors": {
+        "workspaceNotConfigured": "No workspace directory is available yet, so the skill cannot be imported right now.",
+        "sourceNotFound": "The local path could not be found. Please check the path and try again.",
+        "invalidPath": "The local path is invalid or does not match the selected import type.",
+        "unsupportedArchive": "This archive format is not supported yet. Please use .zip, .skill, .tar.gz, or .tgz.",
+        "invalidUrl": "The remote address is invalid. Only GitHub repository URLs and direct archive links are supported right now.",
+        "downloadFailed": "Failed to download the remote skill source. Please try again later or use a local import.",
+        "missingSkill": "No importable SKILL.md was found in the source. Point directly to the skill directory or repository.",
+        "ambiguousSkill": "Multiple skills were found in the source. Point directly to the specific one you want to import.",
+        "skillExists": "A skill with the same name already exists in the workspace, and overwrite was not enabled for this import."
+      }
+    },
+    "reasons": {
+      "disabled": "disabled",
+      "blockedByAllowlist": "blocked by allowlist"
+    }
+  },
+  "plugins": {
+    "title": "Plugins",
+    "description": "Manage external channels and integrations",
+    "channels": {
+      "status": "Status",
+      "notConnected": "Gateway not connected. Configure gateway in Settings first.",
+      "notLoaded": "Not Loaded",
+      "loaded": "Loaded",
+      "installable": "Available",
+      "runningReady": "Running",
+      "activating": "Activating",
+      "pendingActivation": "Needs Activation",
+      "pendingConnection": "Configured",
+      "readyToConnect": "Ready to Connect",
+      "empty": "No channels match the current filter",
+      "noDescription": "No channel description available yet",
+      "searchTitle": "Search Channels",
+      "searchHint": "Find a channel by name, platform, or alias.",
+      "searchPlaceholder": "Search channels...",
+      "filterTitle": "View Filters",
+      "filterHint": "Switch between running channels and channels that are ready to be connected.",
+      "docs": "Docs",
+      "accounts": "Accounts",
+      "defaultAccount": "Default Account",
+      "accountsHint": "Manage account-specific overrides and choose which account should be used by default.",
+      "accountsOptionalHint": "Multi-account mode is optional. Add another account only if you really need separate credentials or routing.",
+      "accountsOptionalEmpty": "This channel is currently using the top-level default configuration. Add another account to manage account-specific overrides.",
+      "accountQuickStart": "Account Quick Start",
+      "accountQuickStartHint": "Only show the key fields needed to get this account working.",
+      "accountAdvanced": "Account Advanced Settings",
+      "accountAdvancedHint": "Full account-level overrides for advanced cases.",
+      "makeDefault": "Make Default",
+      "newAccountId": "New Account ID",
+      "newAccountPlaceholder": "account-id",
+      "addAccount": "Add Account",
+      "accountSchemaUnavailable": "This channel does not expose an account-level configuration schema yet.",
+      "archetype": "Integration Type",
+      "schemaPending": "ClawBox dynamic configuration for this channel will be connected in the next phase.",
+      "schemaUnavailable": "This channel does not expose a usable configuration schema yet.",
+      "rawConfigFallback": "This channel does not expose a structured schema yet. You can still edit its raw configuration below.",
+      "rawConfigEditor": "Raw Configuration",
+      "invalidJson": "Invalid JSON configuration.",
+      "notLoadedHint": "This channel exists in the ClawBox catalog but is not loaded in the current OpenClaw runtime yet. You can still fill in configuration first.",
+      "noDiagnostics": "No diagnostics available.",
+      "rawStatus": "Raw Status",
+      "noAccounts": "No accounts configured",
+      "enabled": "Enabled",
+      "disabled": "Disabled",
+      "running": "Running",
+      "connected": "Connected",
+      "disconnected": "Disconnected",
+      "notConfigured": "Not Configured",
+      "configured": "Configured",
+      "change": "Change",
+      "error": "Error",
+      "saveConfig": "Save Configuration",
+      "saveAndConnect": "Save and Connect",
+      "saving": "Saving...",
+      "configSaved": "Configuration saved! The gateway will auto-apply changes.",
+      "logout": "Logout",
+      "logoutConfirm": "This will clear the stored credentials. Continue?",
+      "credentials": "Credentials",
+      "accessPolicy": "Access Policy",
+      "dmPolicy": "DM Policy",
+      "dmPolicyPairing": "Pairing (approve new users)",
+      "dmPolicyOpen": "Open (anyone can DM)",
+      "dmPolicyAllowlist": "Allowlist only",
+      "dmPolicyDisabled": "Disabled",
+      "groupPolicy": "Group Policy",
+      "groupPolicyOpen": "Open",
+      "groupPolicyAllowlist": "Allowlist only",
+      "groupPolicyDisabled": "Disabled",
+      "allowFrom": "Allowed Users/IDs",
+      "allowFromHint": "Comma-separated user IDs",
+      "advanced": "Advanced",
+      "historyLimit": "Group History Limit",
+      "dmHistoryLimit": "DM History Limit",
+      "streaming": "Streaming Mode",
+      "requireMention": "Require @mention in groups",
+      "enableChannel": "Enable",
+      "activateChannel": "Try Activate",
+      "activateHint": "Use this after saving configuration to restart the gateway and check whether the channel can enter the runtime.",
+      "disableChannel": "Disable",
+      "applying": "Applying...",
+      "startHint": "Gateway will restart to apply changes",
+      "testConnection": "Test",
+      "testing": "Testing...",
+      "testSuccess": "Credentials verified",
+      "testFailed": "Credential verification failed",
+      "probeNoAccount": "Gateway returned no account info for this channel. Check if the gateway is running.",
+      "probeNotConfigured": "Channel credentials not fully configured. Save credentials first.",
+      "probeNotEnabled": "Channel is disabled. Enable it to run the probe.",
+      "probeSkipped": "Gateway skipped the probe. Check channel configuration.",
+      "filters": {
+        "all": "All",
+        "loaded": "Loaded",
+        "installable": "Available"
+      },
+      "summary": {
+        "total": "{{count}} channels",
+        "loaded": "{{count}} loaded",
+        "installable": "{{count}} available"
+      },
+      "legend": {
+        "running": "Already in the current runtime and ready for message handling.",
+        "pending": "Configured or activating, but not fully ready yet.",
+        "available": "Known by ClawBox and ready to be connected."
+      },
+      "sections": {
+        "overview": "Overview",
+        "quickStart": "Quick Start",
+        "setup": "Setup",
+        "accounts": "Accounts",
+        "configuration": "Configuration",
+        "advanced": "Advanced Settings",
+        "access": "Access",
+        "diagnostics": "Diagnostics"
+      },
+      "advancedHint": "Optional settings for power users. You usually do not need these during first-time setup.",
+      "showAdvanced": "Show advanced",
+      "hideAdvanced": "Hide advanced",
+      "quickStart": {
+        "default": "Fill in the essential credentials first, then connect the channel.",
+        "telegram": "Paste the Bot Token from @BotFather, then click Save and Connect.",
+        "slack": "Fill in the bot credentials you actually use, then click Save and Connect.",
+        "feishu": "Enter App ID and App Secret first, then Save and Connect.",
+        "discord": "Enter the bot token, save it, then connect Discord.",
+        "irc": "Fill in the IRC server and nick first, then Save and Connect.",
+        "googlechat": "Fill in the minimum Google Chat webhook settings, then Save and Connect.",
+        "signal": "Fill in the local Signal bridge settings first, then Save and Connect.",
+        "imessage": "Configure the local bridge path first, then Save and Connect.",
+        "whatsapp": "Start the QR login flow, scan the code, then return here to continue.",
+        "zalouser": "Start the QR login flow, scan the code in Zalo, then continue."
+      },
+      "quickStartUnavailable": "No quick-start fields are available for this channel yet. Use the advanced section below.",
+      "auth": {
+        "start": "Start Login",
+        "restart": "Restart Login",
+        "cancel": "Cancel Tracking",
+        "qrAlt": "Channel login QR code",
+        "states": {
+          "idle": "Idle",
+          "starting": "Preparing login",
+          "awaiting_scan": "Waiting for QR scan",
+          "connecting": "Waiting for confirmation",
+          "connected": "Connected",
+          "error": "Login failed",
+          "cancelled": "Tracking cancelled",
+          "unsupported": "Unsupported"
+        }
+      },
+      "catalog": {
+        "telegram": {
+          "detailLabel": "Telegram Bot",
+          "description": "Connect a Telegram bot through the Bot API."
+        },
+        "whatsapp": {
+          "detailLabel": "WhatsApp Web",
+          "description": "Link your WhatsApp account through a QR login flow."
+        },
+        "discord": {
+          "detailLabel": "Discord Bot",
+          "description": "Run OpenClaw inside a Discord bot integration."
+        },
+        "irc": {
+          "detailLabel": "IRC",
+          "description": "Classic IRC connection with server, nick and channel routing."
+        },
+        "googlechat": {
+          "detailLabel": "Google Chat",
+          "description": "Google Workspace Chat app integration over the Chat API."
+        },
+        "slack": {
+          "detailLabel": "Slack Bot",
+          "description": "Slack workspace integration through Socket Mode or HTTP events."
+        },
+        "signal": {
+          "detailLabel": "Signal REST",
+          "description": "Signal messaging integration backed by signal-cli."
+        },
+        "imessage": {
+          "detailLabel": "iMessage",
+          "description": "Local iMessage bridge powered by imsg."
+        },
+        "feishu": {
+          "detailLabel": "Feishu / Lark",
+          "description": "Enterprise messaging integration for Feishu and Lark workspaces."
+        },
+        "nostr": {
+          "detailLabel": "Nostr",
+          "description": "Encrypted DM integration for the Nostr ecosystem."
+        },
+        "msteams": {
+          "detailLabel": "Microsoft Teams",
+          "description": "Bot Framework integration for Microsoft Teams."
+        },
+        "mattermost": {
+          "detailLabel": "Mattermost Bot",
+          "description": "Mattermost plugin-style integration for self-hosted teams."
+        },
+        "nextcloud-talk": {
+          "detailLabel": "Nextcloud Talk",
+          "description": "Self-hosted messaging integration through Nextcloud Talk."
+        },
+        "matrix": {
+          "detailLabel": "Matrix",
+          "description": "Open protocol chat integration for Matrix rooms and DMs."
+        },
+        "bluebubbles": {
+          "detailLabel": "BlueBubbles",
+          "description": "macOS BlueBubbles bridge for iMessage-compatible workflows."
+        },
+        "line": {
+          "detailLabel": "LINE Bot",
+          "description": "LINE Messaging API integration for bot-based delivery."
+        },
+        "zalo": {
+          "detailLabel": "Zalo Bot",
+          "description": "Zalo Bot API integration for Vietnam-focused messaging."
+        },
+        "zalouser": {
+          "detailLabel": "Zalo Personal",
+          "description": "Personal-account Zalo integration through QR login."
+        },
+        "synology-chat": {
+          "detailLabel": "Synology Chat",
+          "description": "Webhook-based integration for Synology Chat deployments."
+        },
+        "tlon": {
+          "detailLabel": "Tlon",
+          "description": "Urbit / Tlon messaging integration."
+        }
+      },
+      "pairing": {
+        "title": "Pairing Management",
+        "pending": "Pending Requests",
+        "noPending": "No pending pairing requests",
+        "approve": "Approve",
+        "approved": "Approved!",
+        "code": "Code",
+        "sender": "Sender",
+        "requestedAt": "Requested",
+        "approvedUsers": "Approved Users",
+        "noApproved": "No approved users yet",
+        "hint": "When DM policy is \"Pairing\", new users must send a message to get a code, then admin approves here"
+      },
+      "telegram": {
+        "title": "Telegram",
+        "description": "Connect a Telegram bot to your AI assistant",
+        "botToken": "Bot Token",
+        "botTokenHint": "Get from @BotFather on Telegram",
+        "botTokenPlaceholder": "123456:ABC-DEF1234ghIkl..."
+      },
+      "slack": {
+        "title": "Slack",
+        "description": "Connect to a Slack workspace via Socket Mode",
+        "botToken": "Bot Token (xoxb-)",
+        "botTokenHint": "OAuth Bot Token from your Slack app",
+        "botTokenPlaceholder": "xoxb-...",
+        "appToken": "App Token (xapp-)",
+        "appTokenHint": "App-Level Token with connections:write scope",
+        "appTokenPlaceholder": "xapp-1-...",
+        "mode": "Connection Mode",
+        "modeSocket": "Socket Mode",
+        "modeHttp": "HTTP Events",
+        "signingSecret": "Signing Secret",
+        "signingSecretHint": "Required for HTTP mode"
+      },
+      "feishu": {
+        "title": "Feishu / Lark",
+        "description": "Connect to Feishu or Lark workspace",
+        "appId": "App ID",
+        "appIdHint": "From Feishu/Lark developer console",
+        "appIdPlaceholder": "cli_...",
+        "appSecret": "App Secret",
+        "appSecretHint": "Keep this secret safe",
+        "domain": "Platform",
+        "domainFeishu": "Feishu (China)",
+        "domainLark": "Lark (International)",
+        "connectionMode": "Connection Mode",
+        "connectionWebsocket": "WebSocket",
+        "connectionWebhook": "Webhook",
+        "encryptKey": "Encrypt Key",
+        "encryptKeyHint": "Optional, for message encryption",
+        "verificationToken": "Verification Token",
+        "verificationTokenHint": "Optional, for webhook verification"
+      }
+    }
+  }
+}

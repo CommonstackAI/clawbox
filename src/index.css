@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 20% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 20% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 20% 20%;
+    --primary: 240 55% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 20% 96%;
+    --secondary-foreground: 240 20% 20%;
+    --muted: 240 15% 96%;
+    --muted-foreground: 240 10% 50%;
+    --accent: 240 20% 95%;
+    --accent-foreground: 240 20% 20%;
+    --destructive: 357 79% 47%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 10% 92%;
+    --input: 240 10% 92%;
+    --ring: 240 55% 35%;
+    --radius: 0.625rem;
+    --sidebar-bg: 240 20% 98%;
+  }
+
+  .dark {
+    --background: 240 10% 6%;
+    --foreground: 0 0% 95%;
+    --card: 240 10% 9%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 10% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 240 55% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 240 15% 15%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 8% 16%;
+    --input: 240 8% 16%;
+    --ring: 240 55% 55%;
+    --sidebar-bg: 240 10% 7%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+  }
+  code, pre, kbd, samp {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+@layer utilities {
+  .subtle-separator-b {
+    position: relative;
+  }
+  .subtle-separator-b::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+  }
+  .subtle-separator-r {
+    position: relative;
+  }
+  .subtle-separator-r::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, hsl(var(--border)), transparent);
+  }
+}
