@@ -16,6 +16,54 @@
 
 <hr />
 
+## Install And Use
+
+If you only want to use ClawBox, start here instead of the development setup below.
+
+### 1. Download the desktop app
+
+- macOS / Windows: download the latest package from [GitHub Releases](https://github.com/CommonstackAI/clawbox/releases)
+- Linux: source build only for now
+
+### 2. Launch ClawBox and choose an environment mode
+
+On first launch, ClawBox opens a setup wizard and helps you prepare the OpenClaw runtime.
+
+- `Portable (Built-in)`: recommended for most users. ClawBox prepares an app-managed portable Node.js runtime and installs OpenClaw for you during setup.
+- `System Install`: use this if you already manage OpenClaw yourself on the machine.
+
+If you choose `System Install`, install OpenClaw first:
+
+```bash
+npm install -g openclaw@latest
+```
+
+### 3. Let the setup wizard finish
+
+The wizard will check the OpenClaw runtime, start the Gateway, and guide you into the app.
+
+- Recommended baseline: OpenClaw `2026.3.12` or newer
+- Default Gateway URL shape: `http://127.0.0.1:18789/v1`
+
+If you already run OpenClaw elsewhere, open ClawBox settings and point it at your existing Gateway URL.
+
+### 4. Configure your model provider
+
+After setup finishes, open **Settings** and configure an upstream provider:
+
+- `CommonStack`: recommended project-default path
+- `Custom Provider`: supports OpenAI-compatible or Anthropic-compatible endpoints
+
+Then save the provider config, fetch models if needed, and choose a default model.
+
+### 5. Start using ClawBox
+
+Once the Gateway and provider are ready, you can:
+
+- start chats and manage sessions
+- edit Soul files
+- manage channels, cron jobs, plugins, and skills
+
 ## Scope
 
 - ClawBox is open source in this repository.
@@ -28,7 +76,9 @@
 - Bun/Hono backend in [`internal/`](internal)
 - React 18 + Vite frontend in [`src/`](src)
 
-## Quick Start
+## Development Quick Start
+
+If you are contributing to ClawBox or running it from source, use this flow.
 
 ### 1. Install dependencies
 
