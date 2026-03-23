@@ -12,6 +12,8 @@
   <a href="https://github.com/CommonstackAI/clawbox/issues"><strong>Issues</strong></a>
   &nbsp;&nbsp;•&nbsp;&nbsp;
   <a href="https://github.com/openclaw/openclaw"><strong>OpenClaw</strong></a>
+  &nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="./README.zh.md"><strong>中文</strong></a>
 </p>
 
 <hr />
