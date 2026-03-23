@@ -66,6 +66,20 @@ Once the Gateway and provider are ready, you can:
 - edit Soul files
 - manage channels, cron jobs, plugins, and skills
 
+## Screenshots
+
+### Main
+
+![ClawBox main view](./public/main.png)
+
+### Plugin
+
+![ClawBox plugin view](./public/plugin.png)
+
+### Skills
+
+![ClawBox skills view](./public/skills.png)
+
 ## Scope
 
 - ClawBox is open source in this repository.
