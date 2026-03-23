@@ -1,7 +1,20 @@
-# ClawBox
+![ClawBox banner](./banner.png)
 
-ClawBox is a desktop client for the [OpenClaw](https://github.com/openclaw/openclaw) Gateway.
-It packages a Tauri shell, a React frontend, and a Bun/Hono backend into a single desktop workflow for chat, sessions, channels, cron, skills, and onboarding.
+<p align="center">
+  ClawBox is a desktop client for the <a href="https://github.com/openclaw/openclaw">OpenClaw</a> Gateway. It packages a Tauri shell, a React frontend, and a Bun/Hono backend into a single desktop workflow for chat, sessions, channels, cron, skills, and onboarding.
+</p>
+
+<p align="center">
+  <a href="https://github.com/CommonstackAI/clawbox"><strong>GitHub</strong></a>
+  &nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="https://github.com/CommonstackAI/clawbox/releases"><strong>Releases</strong></a>
+  &nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="https://github.com/CommonstackAI/clawbox/issues"><strong>Issues</strong></a>
+  &nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="https://github.com/openclaw/openclaw"><strong>OpenClaw</strong></a>
+</p>
+
+<hr />
 
 ## Scope
 
