@@ -5,7 +5,12 @@
     "cron": "任务",
     "plugins": "插件",
     "skills": "技能",
+    "workshop": "工作坊",
     "settings": "设置"
+  },
+  "workshop": {
+    "title": "工作坊",
+    "placeholder": "代理活动的3D可视化。开始对话后，工作坊将活跃起来。"
   },
   "chat": {
     "welcomeMessage": "有什么可以帮忙的？",

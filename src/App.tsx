@@ -17,9 +17,12 @@ import { useAppInit } from '@/hooks/useAppInit'
 import { useChatStore } from '@/store/chat'
 import { useTitleStore } from '@/store/titles'
 import { useAgentStore } from '@/store/agents'
-import { MessageCircle, Settings, Plug, Clock, Sparkles, Loader2, Wrench } from 'lucide-react'
+import { MessageCircle, Settings, Plug, Clock, Sparkles, Loader2, Wrench, Hammer } from 'lucide-react'
+import { lazy, Suspense } from 'react'
 
-export type View = 'chat' | 'soul' | 'cron' | 'settings' | 'plugins' | 'skills'
+const LazyWorkshopView = lazy(() => import('@/workshop/components/WorkshopView').then(m => ({ default: m.WorkshopView })))
+
+export type View = 'chat' | 'soul' | 'cron' | 'settings' | 'plugins' | 'skills' | 'workshop'
 type OnboardTransitionStage = 'idle' | 'closing' | 'opening'
 
 const RECONFIGURE_SWITCH_DELAY_MS = 180
@@ -47,6 +50,7 @@ function App() {
     { id: 'cron' as View, icon: Clock, label: t('nav.cron') },
     { id: 'plugins' as View, icon: Plug, label: t('nav.plugins') },
     { id: 'skills' as View, icon: Wrench, label: t('nav.skills') },
+    { id: 'workshop' as View, icon: Hammer, label: t('nav.workshop') },
     { id: 'settings' as View, icon: Settings, label: t('nav.settings') },
   ]
 
@@ -107,6 +111,11 @@ function App() {
       case 'cron': return <CronView />
       case 'plugins': return <PluginsView />
       case 'skills': return <SkillsView />
+      case 'workshop': return (
+        <Suspense fallback={<div className="flex h-full items-center justify-center"><Loader2 className="h-6 w-6 animate-spin text-muted-foreground" /></div>}>
+          <LazyWorkshopView />
+        </Suspense>
+      )
       case 'settings': return <SettingsView onReconfigure={handleReconfigure} />
       default: return <ChatView />
     }
@@ -122,16 +131,18 @@ function App() {
     >
       <Sidebar navItems={navItems} currentView={currentView} onViewChange={setCurrentView} />
       <div className="flex-1 flex flex-col overflow-hidden">
-        <div className="subtle-separator-b px-6 py-2.5 flex items-center justify-between bg-background/80 backdrop-blur-md">
-          <h1 className="text-lg font-semibold truncate flex-1 mr-4">
-            {currentView === 'chat' && conversation ? headerTitle : ''}
-          </h1>
-          <div className="flex items-center gap-1">
-            <LanguageToggle />
-            <ThemeToggle />
+        {currentView !== 'workshop' && (
+          <div className="subtle-separator-b px-6 py-2.5 flex items-center justify-between bg-background/80 backdrop-blur-md">
+            <h1 className="text-lg font-semibold truncate flex-1 mr-4">
+              {currentView === 'chat' && conversation ? headerTitle : ''}
+            </h1>
+            <div className="flex items-center gap-1">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
           </div>
-        </div>
-        <GatewayRestartBanner />
+        )}
+        {currentView !== 'workshop' && <GatewayRestartBanner />}
         <div className="flex-1 overflow-hidden">
           {renderView()}
         </div>

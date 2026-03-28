@@ -7,6 +7,7 @@ import { useTitleStore } from '@/store/titles'
 import { streamChat, abortChat } from '@/services/ai'
 import { toolsApi } from '@/services/api'
 import type { Message } from '@/types'
+import { workshopCallbacks } from '@/workshop/bridge/ClawBoxEventTap'
 
 export function useChat() {
   const chatStore = useChatStore()
@@ -63,9 +64,16 @@ export function useChat() {
       await streamChat(
         { sessionKey: convId, prompt, thinking: thinking || 'off' },
         {
-          onText: (content) => chatStore.appendTextBlock(finalConvId, assistantId, content),
-          onReasoning: (content) => chatStore.appendReasoningBlock(finalConvId, assistantId, content),
+          onText: (content) => {
+            chatStore.appendTextBlock(finalConvId, assistantId, content)
+            workshopCallbacks.onText(content)
+          },
+          onReasoning: (content) => {
+            chatStore.appendReasoningBlock(finalConvId, assistantId, content)
+            workshopCallbacks.onReasoning(content)
+          },
           onToolStart: (data) => {
+            workshopCallbacks.onToolStart(data)
             chatStore.addToolCallBlock(finalConvId, assistantId, {
               toolName: data.name,
               toolCallId: data.toolCallId,
@@ -97,16 +105,21 @@ export function useChat() {
               })
           },
           onToolUpdate: (data) => chatStore.updateToolCallBlock(finalConvId, assistantId, data.toolCallId, {
+            // Note: tool_update events don't map to a distinct workshop event
             toolName: data.name || 'tool',
             result: data.result,
             status: 'running',
           }),
-          onToolEnd: (data) => chatStore.updateToolCallBlock(finalConvId, assistantId, data.toolCallId, {
-            toolName: data.name || 'tool',
-            result: data.result,
-            status: data.error ? 'error' : 'completed',
-          }),
+          onToolEnd: (data) => {
+            workshopCallbacks.onToolEnd(data)
+            chatStore.updateToolCallBlock(finalConvId, assistantId, data.toolCallId, {
+              toolName: data.name || 'tool',
+              result: data.result,
+              status: data.error ? 'error' : 'completed',
+            })
+          },
           onDone: () => {
+            workshopCallbacks.onDone()
             chatStore.updateMessage(finalConvId, assistantId, { isLoading: false })
             chatStore.setConversationStreaming(finalConvId, false)
             if (chatStore.currentConversationId !== finalConvId) {
@@ -114,6 +127,7 @@ export function useChat() {
             }
           },
           onError: (error) => {
+            workshopCallbacks.onError(error)
             chatStore.updateMessage(finalConvId, assistantId, {
               isLoading: false, error: true,
               blocks: [{ type: 'text', content: `Error: ${error}` }],
