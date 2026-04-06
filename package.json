@@ -107,6 +107,7 @@
     "archiver": "^7.0.1",
     "autoprefixer": "^10.4.20",
     "concurrently": "^9.1.2",
+    "esbuild": "^0.25.12",
     "jsdom": "^26.1.0",
     "license-checker-rseidelsohn": "^4.4.2",
     "postcss": "^8.5.1",
