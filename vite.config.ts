@@ -22,6 +22,7 @@ export default defineConfig(async () => {
           manualChunks(id: string) {
             if (!id.includes('node_modules')) return
             if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('/scheduler/')) return 'vendor-react'
+            if (id.includes('/three/')) return 'vendor-three'
             if (id.includes('@radix-ui')) return 'vendor-radix'
             if (id.includes('i18next')) return 'vendor-i18n'
             if (

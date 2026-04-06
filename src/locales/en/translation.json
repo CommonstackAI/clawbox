@@ -5,7 +5,12 @@
     "cron": "Cron",
     "plugins": "Plugins",
     "skills": "Skills",
+    "workshop": "Workshop",
     "settings": "Settings"
+  },
+  "workshop": {
+    "title": "Workshop",
+    "placeholder": "3D visualization of agent activity. Start a chat to see the workshop come alive."
   },
   "chat": {
     "welcomeMessage": "How can I help you?",
