@@ -106,7 +106,7 @@ jobs:
 
       - name: Publish GitHub release with hand-written notes
         if: steps.release_notes.outputs.has_notes == 'true'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             release-artifacts/**/*
@@ -115,7 +115,7 @@ jobs:
 
       - name: Publish GitHub release with generated notes fallback
         if: steps.release_notes.outputs.has_notes != 'true'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             release-artifacts/**/*
